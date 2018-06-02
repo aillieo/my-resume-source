@@ -27,6 +27,17 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+
+        tabs : {
+        	default: [], 
+        	type: [cc.Toggle]
+        },
+
+        pages : {
+        	default: [], 
+        	type: [cc.Node]
+        }
+
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -35,11 +46,36 @@ cc.Class({
 
     start () {
 
+    	this.initToggleEvents();
+    	this.onTabClick(null,0);
+
     },
 
     // update (dt) {},
 
     onTabClick(toggle, data) {
-    	console.log("click " + data);
-    }
+    	for(var i in this.pages)
+    	{
+    		this.pages[i].active = (i == data);
+    	}
+    },
+
+    initToggleEvents() {
+    	for(var i in this.tabs)
+    	{
+    		var checkEventHandler = new cc.Component.EventHandler();
+			checkEventHandler.target = this.node;
+			checkEventHandler.component = "TabsCtrl"
+			checkEventHandler.handler = "onTabClick";
+			checkEventHandler.customEventData = i;
+
+			this.tabs[i].checkEvents.push(checkEventHandler);
+    	}
+    },
+
+
+
+
+
+
 });
