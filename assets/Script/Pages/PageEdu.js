@@ -8,10 +8,8 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 var DataMgr = require("DataMgr");
-var PageBase = require("PageBase");
-
 cc.Class({
-    extends: cc.Component,
+    extends: require("PageBase"),
 
     properties: {
         // foo: {
@@ -29,17 +27,6 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-
-        tabs : {
-        	default: [], 
-        	type: [cc.Toggle]
-        },
-
-        pages : {
-        	default: [], 
-        	type: [PageBase]
-        },
-
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -48,52 +35,28 @@ cc.Class({
 
     start () {
 
-    	this.initToggleEvents();
-    	this.onTabClick(null,0);
-
     },
+
+    initWithData()
+    {
+        this.data = DataMgr.getInstance().getDataEdu();
+        return this.data!= null;
+    },
+
+    onEnter()
+    {
+        cc.log("PageEdu onEnter");
+        if(!this.data && !this.initWithData())
+        {
+            return;
+        }
+        cc.log("len = " + this.data.length);
+    },
+
+    onExit()
+    {
+        cc.log("PageEdu onExit");
+    }
 
     // update (dt) {},
-
-    onTabClick(toggle, data) {
-    	for(var i in this.pages)
-    	{
-    		//this.pages[i].node.active = (i == data);
-            if(i == data)
-            {
-                if(!this.pages[i].node.active)
-                {
-                    this.pages[i].onEnter();
-                    this.pages[i].node.active = true;
-                }
-            }
-            else
-            {
-                if(this.pages[i].node.active)
-                {
-                    this.pages[i].node.active = false;   
-                    this.pages[i].onExit();           
-                }
-            }
-    	}
-    },
-
-    initToggleEvents() {
-    	for(var i in this.tabs)
-    	{
-    		var checkEventHandler = new cc.Component.EventHandler();
-			checkEventHandler.target = this.node;
-			checkEventHandler.component = "TabsCtrl"
-			checkEventHandler.handler = "onTabClick";
-			checkEventHandler.customEventData = i;
-
-			this.tabs[i].checkEvents.push(checkEventHandler);
-    	}
-    },
-
-
-
-
-
-
 });

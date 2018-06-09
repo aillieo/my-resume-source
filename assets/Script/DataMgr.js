@@ -32,16 +32,41 @@ var DataMgr = cc.Class({
         });
     },
 
-    getName(){
+    getDataBasic(){
         if(this.data)
         {
-            return "DataMgr.getData " + this.data.basic.name;
+            return this.data.basic;
         }
         else
         {
             cc.log("data not loaded");
+            return null;
         }
-    }
+    },
+
+    getDataSkill(){
+        if(this.data)
+        {
+            return this.data.skills;
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    },
+
+    getDataEdu(){
+        if(this.data)
+        {
+            return this.data.education;
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    },
 
 
 });
