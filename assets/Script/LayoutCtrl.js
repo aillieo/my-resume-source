@@ -1,3 +1,4 @@
+var DataMgr = require("DataMgr");
 cc.Class({
     extends: cc.Component,
 
@@ -14,6 +15,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         this.label.string = this.text;
+        DataMgr.getInstance().loadData();
     },
 
     // called every frame

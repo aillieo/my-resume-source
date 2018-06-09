@@ -1,0 +1,74 @@
+{
+    "basic": {
+        "name": "aillieo",
+        "age": 20,
+        "intro": "intro",
+        "keywords": [
+            "k1",
+            "k2",
+            "k3"
+        ],
+        "image": "",
+        "link": "url"
+    },
+    "skills": [
+        {
+            "item": "cocos",
+            "detail": "detail1"
+        },
+        {
+            "item": "unity",
+            "detail": "detail2"
+        }
+    ],
+    "education": [
+        {
+            "from": 2000,
+            "to": 2010,
+            "university": "university1",
+            "major": "major1",
+            "detail": "detail1"
+        },
+        {
+            "from": 2010,
+            "to": 2015,
+            "university": "university2",
+            "major": "major2",
+            "detail": "detail2"
+        }
+    ],
+    "experience": [
+        {
+            "from": 2015,
+            "to": 2016,
+            "company": "company1",
+            "position": "position1",
+            "detail": "detail1"
+        },
+        {
+            "from": 2016,
+            "to": 2017,
+            "company": "company2",
+            "position": "position2",
+            "detail": "detail2"
+        }
+    ],
+    "projects": [
+        {
+            "from": 2016,
+            "to": 2017,
+            "name": "name1",
+            "detail": "detail1",
+            "image": "",
+            "link": "url"
+        },
+        {
+            "from": 2017,
+            "to": 2018,
+            "name": "name1",
+            "detail": "detail2",
+            "image": "",
+            "link": "url"
+        }
+    ]
+}

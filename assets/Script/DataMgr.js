@@ -1,41 +1,57 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+// DataMgr.js 
+//
+// use this singleton
+//var DataMgr = require("DataMgr");
+//DataMgr.getInstance().somefunc();
+//
 
-cc.Class({
-    extends: cc.Component,
+var DataMgr = cc.Class({
+    // 成员变量
+    name : "DataMgr",
+    data : null,
 
-    properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+    ctor () {
+        this.name = "DataMgr";
+        this.loadData();
     },
 
-    // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-
-    start () {
-
+    loadData(){
+        var url = ('TextData/data');
+        var self = this;
+        cc.loader.loadRes( url, function( err, res)
+        {
+            if (err)
+            {
+                cc.log(err);
+            }
+            else
+            {
+                self.data = res;
+            }
+        });
     },
 
-    // update (dt) {},
+    getName(){
+        if(this.data)
+        {
+            return "DataMgr.getData " + this.data.basic.name;
+        }
+        else
+        {
+            cc.log("data not loaded");
+        }
+    }
+
+
 });
+
+DataMgr._instance = null;
+DataMgr.getInstance = function () {
+    if(!DataMgr._instance){
+        DataMgr._instance = new DataMgr();
+    }
+    return DataMgr._instance;
+}
+
+module.exports = DataMgr;

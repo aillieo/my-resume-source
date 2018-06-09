@@ -7,6 +7,7 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+var DataMgr = require("DataMgr");
 
 cc.Class({
     extends: cc.Component,
@@ -57,6 +58,11 @@ cc.Class({
     	for(var i in this.pages)
     	{
     		this.pages[i].active = (i == data);
+            if(i == data)
+            {
+                cc.log(DataMgr.getInstance().getName());
+
+            }
     	}
     },
 
