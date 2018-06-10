@@ -14,11 +14,13 @@
     "skills": [
         {
             "item": "cocos",
-            "detail": "detail1"
+            "detail": "detail1",
+            "icon": "cocos"
         },
         {
             "item": "unity",
-            "detail": "detail2"
+            "detail": "detail2",
+            "icon": "cocos"
         }
     ],
     "education": [

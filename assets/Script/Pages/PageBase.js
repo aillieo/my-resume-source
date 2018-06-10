@@ -3,7 +3,6 @@ cc.Class({
 
     properties: {
 
-        data: null
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
