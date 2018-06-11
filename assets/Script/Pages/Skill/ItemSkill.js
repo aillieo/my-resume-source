@@ -33,13 +33,14 @@ cc.Class({
         this.labelDes.string = this.data.detail;
         var iconPath = "Sprites/" + this.data.icon;
         var self = this;
-        cc.log(iconPath);
+
         //self.icon.spriteFrame = new cc.SpriteFrame(iconPath);
         
-        cc.loader.loadRes(iconPath, 
+        cc.loader.loadRes(iconPath, cc.SpriteFrame,
             function(err, texture){
-                cc.log(self);
-                self.icon.spriteFrame.setTexture(texture);
+                cc.log(self.icon);
+                cc.log(texture);
+                self.icon.spriteFrame = texture;
             });
             
     }
