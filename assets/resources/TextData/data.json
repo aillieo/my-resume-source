@@ -72,5 +72,9 @@
             "image": "",
             "link": "url"
         }
-    ]
+    ],
+    "details": {
+        "1001": "detail 1001",
+        "1002": "detail 1002"
+    }
 }

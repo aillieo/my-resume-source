@@ -69,6 +69,20 @@ var DataMgr = cc.Class({
     },
 
 
+
+    getDetailByKey(key){
+        if(this.data)
+        {
+            return this.data.details[key];
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    },
+
+
 });
 
 DataMgr._instance = null;
