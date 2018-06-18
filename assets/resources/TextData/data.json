@@ -1,7 +1,23 @@
 {
     "basic": {
-        "name": "aillieo",
-        "age": 20,
+        "info": [
+            {
+                "item": "name",
+                "info": "aillieo"
+            },
+            {
+                "item": "age",
+                "info": "20"
+            },
+            {
+                "item": "phone",
+                "info": "18500000000"
+            },
+            {
+                "item": "email",
+                "info": "aillieo@xxx.xxx"
+            }
+        ],
         "intro": "intro",
         "keywords": [
             "k1",

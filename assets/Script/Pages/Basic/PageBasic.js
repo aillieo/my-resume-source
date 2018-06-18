@@ -1,32 +1,16 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 var DataMgr = require("DataMgr");
 cc.Class({
     extends: require("PageBase"),
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        infoItemTemplate: {
+            default: null,
+            type: cc.Node
+        },
+        basicInfoRoot: {
+            default: null,
+            type: cc.Node
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -40,6 +24,21 @@ cc.Class({
     initWithData()
     {
         this.data = DataMgr.getInstance().getDataBasic();
+
+
+        for (let i = 0; i < this.data.info.length; ++i) 
+        {
+            let itemObj = cc.instantiate(this.infoItemTemplate);
+            itemObj.active = true;
+            this.basicInfoRoot.addChild(itemObj);
+            let item = itemObj.getChildByName("item");
+            let info = itemObj.getChildByName("info");
+            let itemData = this.data.info[i];
+            item.getComponent('cc.Label').string = itemData.item;
+            info.getComponent('cc.Label').string = itemData.info;
+        }
+
+
         return this.data!= null;
     },
 
@@ -50,9 +49,6 @@ cc.Class({
         {
             return;
         }
-        cc.log("name = " + this.data.name);
-        cc.log("age = " + this.data.age);
-        cc.log("intro = " + this.data.intro);
     },
 
     onExit()
