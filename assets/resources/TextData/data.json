@@ -45,14 +45,16 @@
             "to": 2010,
             "university": "university1",
             "major": "major1",
-            "detail": "detail1"
+            "detail": "detail1",
+            "icon": "unity"
         },
         {
             "from": 2010,
             "to": 2015,
             "university": "university2",
             "major": "major2",
-            "detail": "detail2"
+            "detail": "detail2",
+            "icon": "unity"
         }
     ],
     "experience": [

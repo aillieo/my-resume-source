@@ -2,7 +2,17 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        labelTitle: {
+        labelYear: {
+            default: null,
+            type: cc.Label
+        },
+
+        labelUniversity: {
+            default: null,
+            type: cc.Label
+        },
+
+        labelMajor: {
             default: null,
             type: cc.Label
         },
@@ -33,12 +43,13 @@ cc.Class({
             return;
         }
         this.data = data;
-        this.labelTitle.string = this.data.item;
+        
+        this.labelYear.string = this.data.from.toString() + " - " + this.data.to.toString();
+        this.labelUniversity.string = this.data.university;
+        this.labelMajor.string = this.data.major;
         this.labelDes.string = this.data.detail;
         var iconPath = "Sprites/" + this.data.icon;
         var self = this;
-
-        //self.icon.spriteFrame = new cc.SpriteFrame(iconPath);
         
         cc.loader.loadRes(iconPath, cc.SpriteFrame,
             function(err, texture){
@@ -46,6 +57,7 @@ cc.Class({
                 cc.log(texture);
                 self.icon.spriteFrame = texture;
             });
+            
             
     }
 

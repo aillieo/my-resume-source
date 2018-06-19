@@ -12,21 +12,14 @@ cc.Class({
     extends: require("PageBase"),
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        itemTemplate: {
+            default: null,
+            type: cc.Node
+        },
+        scrollView: {
+            default: null,
+            type: cc.ScrollView
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -40,7 +33,32 @@ cc.Class({
     initWithData()
     {
         this.data = DataMgr.getInstance().getDataEdu();
-        return this.data!= null;
+        if(this.data == null)
+        {
+            return false;
+        }
+
+        if(!this.inited)
+        {
+            this.initScrollview();
+            this.inited = true;
+        }
+
+
+        return true;
+    },
+
+    initScrollview()
+    {
+        this.itemRoot = this.scrollView.content;
+        for (let i = 0; i < this.data.length; ++i) 
+        {
+            let itemObj = cc.instantiate(this.itemTemplate);
+            itemObj.active = true;
+            this.itemRoot.addChild(itemObj);
+            let item = itemObj.getComponent('ItemEdu');
+            item.setData(this.data[i]);
+        }
     },
 
     onEnter()

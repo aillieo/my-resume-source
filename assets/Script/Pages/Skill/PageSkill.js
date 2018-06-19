@@ -19,7 +19,7 @@ cc.Class({
         scrollView: {
             default: null,
             type: cc.ScrollView
-        },
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -38,7 +38,11 @@ cc.Class({
             return false;
         }
 
-        this.initScrollview();
+        if(!this.inited)
+        {
+            this.initScrollview();
+            this.inited = true;
+        }
 
 
         return true;
@@ -47,16 +51,13 @@ cc.Class({
     initScrollview()
     {
         this.itemRoot = this.scrollView.content;
-        var spacing = 3;
         for (let i = 0; i < this.data.length; ++i) 
         {
             let itemObj = cc.instantiate(this.itemTemplate);
             itemObj.active = true;
             this.itemRoot.addChild(itemObj);
-            itemObj.setPosition(0, -itemObj.height * (0.5 + i) - spacing * (i + 1));
             let item = itemObj.getComponent('ItemSkill');
             item.setData(this.data[i]);
-            //this.items.push(item);
         }
     },
 
