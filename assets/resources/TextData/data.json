@@ -30,12 +30,12 @@
     "skills": [
         {
             "item": "cocos",
-            "detail": "detail1",
+            "detail": "detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1",
             "icon": "cocos"
         },
         {
             "item": "unity",
-            "detail": "detail2",
+            "detail": "detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2",
             "icon": "unity"
         }
     ],
@@ -45,7 +45,7 @@
             "to": 2010,
             "university": "university1",
             "major": "major1",
-            "detail": "detail1",
+            "detail": "detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1 detail1",
             "icon": "unity"
         },
         {
@@ -53,7 +53,7 @@
             "to": 2015,
             "university": "university2",
             "major": "major2",
-            "detail": "detail2",
+            "detail": "detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2",
             "icon": "unity"
         }
     ],
