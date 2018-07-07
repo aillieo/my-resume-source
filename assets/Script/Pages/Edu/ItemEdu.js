@@ -48,7 +48,7 @@ cc.Class({
         this.labelUniversity.string = this.data.university;
         this.labelMajor.string = this.data.major;
         this.labelDes.string = this.data.detail;
-        var iconPath = "Sprites/" + this.data.icon;
+        var iconPath = "Sprites/icons/" + this.data.icon;
         var self = this;
         
         cc.loader.loadRes(iconPath, cc.SpriteFrame,

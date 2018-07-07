@@ -35,7 +35,7 @@ cc.Class({
         this.data = data;
         this.labelTitle.string = this.data.item;
         this.labelDes.string = this.data.detail;
-        var iconPath = "Sprites/" + this.data.icon;
+        var iconPath = "Sprites/icons/" + this.data.icon;
         var self = this;
 
         //self.icon.spriteFrame = new cc.SpriteFrame(iconPath);

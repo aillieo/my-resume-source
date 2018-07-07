@@ -37,6 +37,11 @@
             "item": "unity",
             "detail": "detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2 detail2",
             "icon": "unity"
+        },
+        {
+            "item": "unity",
+            "detail": "detail3 detail3 detail3 detail3 detail3 detail3 detail3 detail3 detail3 detail3",
+            "icon": "unity"
         }
     ],
     "education": [
