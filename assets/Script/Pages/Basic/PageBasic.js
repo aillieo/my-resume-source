@@ -24,7 +24,10 @@ cc.Class({
     initWithData()
     {
         this.data = DataMgr.getInstance().getDataBasic();
-
+        if(this.data == null)
+        {
+            return false;
+        }
 
         for (let i = 0; i < this.data.info.length; ++i) 
         {

@@ -35,6 +35,7 @@ var DataMgr = cc.Class({
     getDataBasic(){
         if(this.data)
         {
+            cc.log("data basic loaded");
             return this.data.basic;
         }
         else
@@ -60,6 +61,31 @@ var DataMgr = cc.Class({
         if(this.data)
         {
             return this.data.education;
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    },
+
+    getDataExp(){
+        if(this.data)
+        {
+            return this.data.experience;
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    },
+
+
+    getDataProj(){
+        if(this.data)
+        {
+            return this.data.projects;
         }
         else
         {
