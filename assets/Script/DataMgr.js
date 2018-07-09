@@ -12,11 +12,11 @@ var DataMgr = cc.Class({
 
     ctor () {
         this.name = "DataMgr";
-        this.loadData();
+        //this.loadData();
     },
 
 
-    loadData(){
+    loadData(callback){
         var url = ('TextData/data');
         var self = this;
         cc.loader.loadRes( url, function( err, res)
@@ -28,6 +28,10 @@ var DataMgr = cc.Class({
             else
             {
                 self.data = res;
+                if(null != callback)
+                {
+                    callback();
+                }
             }
         });
     },
