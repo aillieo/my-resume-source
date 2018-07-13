@@ -47,6 +47,13 @@ cc.Class({
                 self.icon.spriteFrame = texture;
             });
             
+        this.scheduleOnce(this.updateSize,0);   
+    },
+
+    updateSize()
+    {
+        var height = this.labelDes.node.height + 100;
+        this.node.height = Math.max(height,220);
     }
 
     // update (dt) {},
