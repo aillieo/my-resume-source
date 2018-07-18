@@ -113,6 +113,34 @@ var DataMgr = cc.Class({
     },
 
 
+    getTextureByKey(key){
+
+       if(this.data)
+        {
+
+            var str = this.data.images[key];
+            var src = "data:image/png;base64," + str;
+            var imgElement = new Image();
+
+            imgElement.src = src;
+            imgElement.width = 200;
+            imgElement.height = 200;
+
+            var texture2d = new cc.Texture2D();
+            texture2d.initWithElement(imgElement);
+            texture2d.handleLoadedTexture();
+
+            return texture2d;
+
+        }
+        else
+        {
+            cc.log("data not loaded");
+            return null;
+        }
+    }
+
+
 });
 
 DataMgr._instance = null;

@@ -1,3 +1,6 @@
+var DataMgr = require("DataMgr");
+
+
 cc.Class({
     extends: cc.Component,
 
@@ -42,12 +45,14 @@ cc.Class({
         
         cc.loader.loadRes(iconPath, cc.SpriteFrame,
             function(err, texture){
-                cc.log(self.icon);
-                cc.log(texture);
-                self.icon.spriteFrame = texture;
+                //cc.log(texture);
+                //self.icon.spriteFrame = texture;
             });
             
-        this.scheduleOnce(this.updateSize,0);   
+        var texture = DataMgr.getInstance().getTextureByKey(this.data.icon);
+        self.icon.spriteFrame = new cc.SpriteFrame(texture);
+
+        this.scheduleOnce(this.updateSize,0);
     },
 
     updateSize()
